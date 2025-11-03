@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'One-piece';
+  src: url('./one\ piece\ font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+    --main-red : #D63534;
+}
+
+*{
+    user-select: none;
+}
