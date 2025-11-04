@@ -8,13 +8,13 @@
     <title>One piece</title>
 </head>
 <body>
-    <header class="flex justify-between align-center px-5 py-1">
+    <header class="flex justify-between align-center px-5 py-3 fixed bg-white top-0 left-0 w-full z-1">
         <div class="flex-grow">
             <img src="./img/logo.png" alt="logo" class="h-12">
         </div>
         <nav class="font-[One-piece] font-bold  text-2xl flex flex-grow-4 justify-between ">
             <ul class="flex justify-between flex-grow items-center">
-                <li><a href="" class="flex items-center tracking-[3px]  text-(--main-red)"><img src="./img/nav icons/home.png" alt="" class="h-10">Home</a></li>
+                <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/home.png" alt="" class="h-10">Home</a></li>
                 <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/market.png" alt="" class="h-10">Market</a></li>
                 <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/my deck.png" alt="" class="h-10">My Deck</a></li>
                 <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/guide.png" alt="" class="h-10">Guide</a></li>
@@ -23,5 +23,83 @@
             </ul>
         </nav>
     </header>
+
+    <main>
+        <section>
+            <div class="slider h-screen">
+                <div class="slide h-full w-full absolute transition duration-1000 flex justify-center items-center opacity-100">
+                    <img src="./img/home slider img/luffy.webp" alt="" class=" h-full w-full object-cover absolute top-0 left-0 z-[-100] brightness-80">
+                    <div class="slide_content z-10 flex justify-around w-full ">
+                        <div class="slide_text flex flex-col gap-6">
+                            <h1 class="text-[80px] font-bold text-[#FCCF26] drop-shadow-lg">Welcome to</h1>
+                            <img src="./img/logo.png" alt="" class="w-[300px]">
+                            <p class="text-white w-[600px] font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quas pariatur corporis, minima non voluptatibus iste dolore veniam cupiditate perspiciatis iusto maiores, itaque, tenetur molestiae quibusdam corrupti est repellendus commodi.</p>
+                            <a href="" class="py-3 px-19 text-[18px] bg-[#FCCF26] text-white self-center rounded">Get Started</a>
+                        </div>
+                        <div class="card">
+                            <div class="card-rarity-container bg-(--pirate-card-color)">
+                                <img src="./img/rarity/pirate tag.png" alt="" class="card-rarity">
+                            </div>
+                            <img src="./img/cards/luffy.png" alt="" class="card-img border-[20px]  border-(--pirate-card-color)">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide h-full w-full absolute transition duration-1000 flex justify-center items-center opacity-0">
+                    <img src="./img/home slider img/oyaji.webp" alt="" class=" h-full w-full object-cover absolute top-0 left-0 z-[-100] brightness-80">
+                    <div class="slide_content z-10 flex justify-around w-full ">
+                        <div class="slide_text flex flex-col gap-6">
+                            <h1 class="text-[80px] font-bold text-[#FCCF26] drop-shadow-lg">Welcome to</h1>
+                            <img src="./img/logo.png" alt="" class="w-[300px]">
+                            <p class="text-white w-[600px] font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quas pariatur corporis, minima non voluptatibus iste dolore veniam cupiditate perspiciatis iusto maiores, itaque, tenetur molestiae quibusdam corrupti est repellendus commodi.</p>
+                            <a href="" class="py-3 px-19 text-[18px] bg-[#FCCF26] text-white self-center rounded">Get Started</a>
+                        </div>
+                        <div class="card">
+                            <div class="card-rarity-container bg-(--pirate-king-card-color)">
+                                <img src="./img/rarity/pirate king tag.png" alt="" class="card-rarity">
+                            </div>
+                            <img src="./img/cards/oyaji.png" alt="" class="card-img border-[20px]  border-(--pirate-king-card-color)">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide h-full w-full absolute transition duration-1000 flex justify-center items-center opacity-0">
+                    <img src="./img/home slider img/shanks.webp" alt="" class=" h-full w-full object-cover absolute top-0 left-0 z-[-100] brightness-80">
+                    <div class="slide_content z-10 flex justify-around w-full ">
+                        <div class="slide_text flex flex-col gap-6">
+                            <h1 class="text-[80px] font-bold text-[#FCCF26] drop-shadow-lg">Welcome to</h1>
+                            <img src="./img/logo.png" alt="" class="w-[300px]">
+                            <p class="text-white w-[600px] font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quas pariatur corporis, minima non voluptatibus iste dolore veniam cupiditate perspiciatis iusto maiores, itaque, tenetur molestiae quibusdam corrupti est repellendus commodi.</p>
+                            <a href="" class="py-3 px-19 text-[18px] bg-[#FCCF26] text-white self-center rounded">Get Started</a>
+                        </div>
+                        <div class="card">
+                            <div class="card-rarity-container bg-(--yonko-card-color)">
+                                <img src="./img/rarity/yonko tag.png" alt="" class="card-rarity">
+                            </div>
+                            <img src="./img/cards/shanks.png" alt="" class="card-img border-[20px]  border-(--yonko-card-color)">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide h-full w-full absolute transition duration-1000 flex justify-center items-center opacity-0">
+                    <img src="./img/home slider img/nika.webp" alt="" class=" h-full w-full object-cover absolute top-0 left-0 z-[-100] brightness-80">
+                    <div class="slide_content z-10 flex justify-around w-full ">
+                        <div class="slide_text flex flex-col gap-6">
+                            <h1 class="text-[80px] font-bold text-[#FCCF26] drop-shadow-lg">Welcome to</h1>
+                            <img src="./img/logo.png" alt="" class="w-[300px]">
+                            <p class="text-white w-[600px] font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quas pariatur corporis, minima non voluptatibus iste dolore veniam cupiditate perspiciatis iusto maiores, itaque, tenetur molestiae quibusdam corrupti est repellendus commodi.</p>
+                            <a href="" class="py-3 px-19 text-[18px] bg-[#FCCF26] text-white self-center rounded">Get Started</a>
+                        </div>
+                        <div class="card">
+                            <div class="card-rarity-container bg-(--yonko-card-color)">
+                                <img src="./img/rarity/yonko tag.png" alt="" class="card-rarity">
+                            </div>
+                            <img src="./img/cards/nika.png" alt="" class="card-img border-[20px]  border-(--yonko-card-color)">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    
+    <script src="./script.js"></script>
 </body>
 </html>

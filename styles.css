@@ -7,8 +7,38 @@
 
 :root {
     --main-red : #D63534;
+    --pirate-card-color : #00BC32;
+    --yonko-card-color : #8C0000;
+    --pirate-king-card-color : #FFBB00;
 }
 
 *{
     user-select: none;
+}
+
+.card {
+  width: 360px;
+  aspect-ratio: 5/7;
+  position: relative;
+  
+  .card-img {
+    border-radius: 40px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-rarity-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 40px 0;
+    width: 100px;
+    aspect-ratio: 1/1;
+  }
+
+  .card-rarity {
+    width: 100px;
+    filter: brightness(1000);
+  }
 }
