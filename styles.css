@@ -10,6 +10,7 @@
     --pirate-card-color : #00BC32;
     --yonko-card-color : #8C0000;
     --pirate-king-card-color : #FFBB00;
+    --marin-card-color : #009DFF;
 }
 
 *{
@@ -17,7 +18,7 @@
 }
 
 .card {
-  width: 360px;
+  width: 350px;
   aspect-ratio: 5/7;
   position: relative;
   
