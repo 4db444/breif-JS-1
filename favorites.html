@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>One piece</title>
+</head>
+<body>
+    <header class="flex justify-between align-center px-5 py-3 fixed bg-white top-0 left-0 w-full z-1">
+        <div class="flex-grow">
+            <img src="./img/logo.png" alt="logo" class="h-12">
+        </div>
+        <nav class="font-[One-piece] font-bold  text-2xl flex flex-grow-4 justify-between ">
+            <ul class="flex justify-between flex-grow items-center">
+                <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/home.png" alt="" class="h-10">Home</a></li>
+                <li><a href="./market.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/market.png" alt="" class="h-10">Market</a></li>
+                <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/my deck.png" alt="" class="h-10">My Deck</a></li>
+                <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/guide.png" alt="" class="h-10">Guide</a></li>
+                <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/favorite.png" alt="" class="h-10">Favorites</a></li>
+                <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)">cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="mt-25">
+        <h1 class="text-[100px] font-[One-piece] tracking-[3px] text-(--main-red) text-center">Favorites</h1>
+        <section class="filter my-10">
+            <form class="flex w-[700px] justify-around mx-auto">
+                <div>
+                    <input class="hidden peer" type="radio" name="filter_type" id="all" checked>
+                    <label class="border-3 px-4 py-1 rounded-lg border-black text-black peer-checked:bg-black peer-checked:text-white transition" for="all">All</label>
+                </div>
+                <div>
+                    <input class="hidden peer" type="radio" name="filter_type" id="marin">
+                    <label class="border-3 px-4 py-1 rounded-lg border-(--marin-card-color) text-(--marin-card-color) peer-checked:bg-(--marin-card-color) peer-checked:text-white transition" for="marin">Marin</label>
+                </div>
+
+                <div>
+                    <input class="hidden peer" type="radio" name="filter_type" id="pirate">
+                    <label class="border-3 px-4 py-1 rounded-lg border-(--pirate-card-color) text-(--pirate-card-color) bg-white peer-checked:bg-(--pirate-card-color) peer-checked:text-white transition" for="pirate">Pirate</label>
+                </div>
+
+                <div>
+                    <input class="peer hidden" type="radio" name="filter_type" id="yonko">
+                    <label class="border-3 px-4 py-1 rounded-lg border-(--yonko-card-color) text-(--yonko-card-color) bg-white peer-checked:bg-(--yonko-card-color) peer-checked:text-white transition" for="yonko">Yonko</label>
+                </div>
+
+                <div>
+                    <input class="hidden peer" type="radio" name="filter_type" id="pirate-king">
+                    <label class="border-3 px-4 py-1 rounded-lg border-(--pirate-king-card-color) text-(--pirate-king-card-color) bg-white peer-checked:bg-(--pirate-king-card-color) peer-checked:text-white transition" for="pirate-king">Pirate king</label>
+                </div>
+
+            </form>
+        </section>
+        <section class="cards-container flex flex-wrap justify-evenly items-center my-10 gap-10 max-w-[1440px] mx-auto">
+            
+        </section>
+
+        <section class="pagination-container flex justify-center gap-4">
+
+        </section>
+    </main>
+    
+    <script src="./localStorage.js"></script>
+    <script src="./favorites.js"></script>
+</body>
+</html>
