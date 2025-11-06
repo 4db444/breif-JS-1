@@ -29,7 +29,14 @@
 
         <div tabindex="1" class="cart-container w-[400px] h-[calc(100vh-72px)] border-l-3 border-t-3 border-(--main-red) z-50 bg-white fixed top-[72px] right-0 transition translate-x-[100%] flex flex-col justify-between">
             <div class="cart-list flex-shrink-1 overflow-y-auto flex flex-col items-start gap-5 p-2"></div>
-            <div class="cart-footer bg-red-900 h-[70px]"><button>hi</button></div>
+            <div class="cart-footer bg-(--main-red) h-[100px]">
+                <h2 class="order-price text-white text text-center text-2xl">Order Price</h2>
+
+                <div class="actions flex justify-between gap-4 p-3">
+                    <button class="clear-cart-btn border-white text-white border-3 bg-(--main-red) w-[50%] rounded-lg p-2">Clear</button>
+                    <button class=" border-white text-white border-3 bg-(--main-red) w-[50%] rounded-lg p-2">Order</button>
+                </div>
+            </div>
         </div>
 
         <h1 class="text-[100px] font-[One-piece] tracking-[3px] text-(--main-red) text-center">Market</h1>
