@@ -9,26 +9,39 @@
     <title>One piece</title>
 </head>
 <body>
-    <header class="font-[One-piece] gap-4 text-2xl font-bold flex justify-between items-center px-5 py-3 fixed bg-white top-0 left-0 w-full z-1">
-        <div class="flex-grow">
-            <img src="./img/logo.png" alt="logo" class="h-12">
+    <header class="font-[One-piece] gap-4 text-2xl flex justify-between items-center px-5 py-3 fixed bg-white top-0 left-0 w-full z-1 shadow">
+        <div class="flex items-center flex-grow justify-between w-full lg:w-auto">
+            <img src="./img/logo.png" alt="logo" class="h-10 h-12" />
+            <button id="menu-toggle" class="lg:hidden text-(--main-red) text-3xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-        <nav class="font-bold  text-2xl flex flex-grow-4 justify-between ">
-            <ul class="flex justify-between flex-grow items-center">
-                <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/home.png" alt="" class="h-10">Home</a></li>
+        <nav class="text-2xl flex justify-between flex-grow-5">
+            <ul class="max-lg-shadow flex justify-between flex-grow max-lg:fixed max-lg:flex-col max-lg:right-0 bg-green-400 max-lg:h-[calc(100vh-72px)] max-lg:w-full max-lg:top-[72px] bg-white max-lg:py-10 transition max-lg:items-center sm:w-[300px]">
+                <li><a href="./index.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/home.png" alt="" class="h-10">Home</a></li>
                 <li><a href="./market.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/market.png" alt="" class="h-10">Market</a></li>
-                <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/my deck.png" alt="" class="h-10">My Deck</a></li>
-                <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/guide.png" alt="" class="h-10">Guide</a></li>
-                <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/favorite.png" alt="" class="h-10">Favorites</a></li>
+                <li><a href="./my deck.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/my deck.png" alt="" class="h-10">My Deck</a></li>
+                <li><a href="./guide.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/guide.png" alt="" class="h-10">Guide</a></li>
+                <li><a href="favorites.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/favorite.png" alt="" class="h-10">Favorites</a></li>
+                <li>
+                    <button href="" class="cart-btn tracking-[3px] text-(--main-red) bg-(--main-red) text-white px-5 py-1">cart</button>
+                </li>
             </ul>
-            <button href="" class="cart-btn tracking-[3px] text-(--main-red) bg-(--main-red) text-white px-5 py-1">cart</button>
         </nav>
     </header>
 
     <main class="mt-25">
-                <div tabindex="1" class="cart-container w-[400px] h-[calc(100vh-72px)] border-l-3 border-t-3 border-(--main-red) z-50 bg-white fixed top-[72px] right-0 transition translate-x-[100%] flex flex-col justify-between">
+        <div tabindex="1" class="cart-container w-[400px] h-[calc(100vh-72px)] shadow-2xl z-[100000000] bg-white fixed top-[72px] right-0 transition translate-x-[100%] flex flex-col justify-between max-sm:w-full">
+            <button id="toggle-cart" class="absolute right-0 top-0 w-[40px] h-[40px] bg-(--main-red) font-mono flex justify-center items-center text-2xl text-white rounded-full sm:hidden">&times;</button>
             <div class="cart-list flex-shrink-1 overflow-y-auto flex flex-col items-start gap-5 p-2"></div>
-            <div class="cart-footer bg-red-900 h-[70px]"><button>hi</button></div>
+            <div class="cart-footer bg-(--main-red) h-[100px]">
+                <h2 class="order-price text-white text text-center text-2xl">Order Price</h2>
+
+                <div class="actions flex justify-between gap-4 p-3">
+                    <button class="clear-cart-btn border-white text-white border-3 bg-(--main-red) w-[50%] rounded-lg p-2">Clear</button>
+                    <button class="order-cart-btn border-white text-white border-3 bg-(--main-red) w-[50%] rounded-lg p-2">Order</button>
+                </div>
+            </div>
         </div>
         <h1 class="text-[100px] font-[One-piece] tracking-[3px] text-(--main-red) text-center">Favorites</h1>
         <section class="filter my-10">

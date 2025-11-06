@@ -104,3 +104,5 @@ const initialData = [
 if(!localStorage.getItem("cards")) localStorage.setItem("cards", JSON.stringify(initialData));
 
 if(!localStorage.getItem("cart")) localStorage.setItem("cart", JSON.stringify([]));
+
+if(!localStorage.getItem("myDeck")) localStorage.setItem("myDeck", JSON.stringify([]));

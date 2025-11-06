@@ -1,5 +1,11 @@
 const slides = document.querySelectorAll(".slide")
+const menu = document.querySelector("nav>ul")
 let current_slide = 1;
+
+document.getElementById("menu-toggle").addEventListener("click", () => {
+    menu.classList.toggle("max-lg:translate-x-[100%]")
+})
+
 
 const hero_interval = setInterval(() => {
     slides.forEach((slide, index) => {

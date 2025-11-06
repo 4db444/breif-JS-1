@@ -1,5 +1,5 @@
 let cards = JSON.parse(localStorage.getItem("cards"))
-// let cart = JSON.parse(localStorage.getItem("cart"))
+const menu = document.querySelector("nav>ul")
 
 let page_items = 9;
 let page_number = 1;
@@ -111,6 +111,10 @@ document.querySelector("form").addEventListener("change", (e)=> {
         renderCards(filtered_cards)
     }
     
+})
+
+document.getElementById("menu-toggle").addEventListener("click", () => {
+    menu.classList.toggle("max-lg:translate-x-[100%]")
 })
 
 renderCards(cards)
