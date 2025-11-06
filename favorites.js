@@ -76,8 +76,13 @@ function renderCards (arr) {
                         
 
                     </button>
-                    <div ></div>
-                    <div class="w-full h-[100px] bg-(--${arr[i].rarity}-card-color) absolute bottom-0 translate-y-[100%] group-hover:translate-y-0 transition"></div>
+                    <div class="w-full h-[150px] bg-(--${arr[i].rarity}-card-color) absolute bottom-0 translate-y-[100%] group-hover:translate-y-0 transition p-5 flex flex-col justify-between">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-white text-3xl">${arr[i].name}</h3>
+                            <p class="font-bold text-4xl text-white">${arr[i].price}$</p>
+                        </div>
+                        <p class="p-2 text-sm text-center text-white">${arr[i].description}</p>
+                    </div>
                 </div>
             `
         }

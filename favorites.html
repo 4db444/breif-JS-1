@@ -17,14 +17,14 @@
             </button>
         </div>
         <nav class="text-2xl flex justify-between flex-grow-5">
-            <ul class="max-lg-shadow flex justify-between flex-grow max-lg:fixed max-lg:flex-col max-lg:right-0 bg-green-400 max-lg:h-[calc(100vh-72px)] max-lg:w-full max-lg:top-[72px] bg-white max-lg:py-10 transition max-lg:items-center sm:w-[300px]">
+            <ul class="max-lg:translate-x-[100%] flex justify-between flex-grow max-lg:fixed max-lg:flex-col max-lg:right-0 bg-green-400 max-lg:h-[calc(100vh-72px)] max-lg:w-full max-lg:top-[72px] bg-white max-lg:py-10 transition max-lg:items-center sm:w-[300px]">
                 <li><a href="./index.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/home.png" alt="" class="h-10">Home</a></li>
                 <li><a href="./market.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/market.png" alt="" class="h-10">Market</a></li>
                 <li><a href="./my deck.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/my deck.png" alt="" class="h-10">My Deck</a></li>
                 <li><a href="./guide.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/guide.png" alt="" class="h-10">Guide</a></li>
                 <li><a href="favorites.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/favorite.png" alt="" class="h-10">Favorites</a></li>
                 <li>
-                    <button href="" class="cart-btn tracking-[3px] text-(--main-red) bg-(--main-red) text-white px-5 py-1">cart</button>
+                    <button class="rounded-md cart-btn tracking-[3px] text-(--main-red) bg-(--main-red) text-white px-5 py-1">cart</button>
                 </li>
             </ul>
         </nav>
@@ -45,11 +45,12 @@
         </div>
         <h1 class="text-[100px] font-[One-piece] tracking-[3px] text-(--main-red) text-center">Favorites</h1>
         <section class="filter my-10">
-            <form class="flex w-[700px] justify-around mx-auto">
+            <form class="flex w-[700px] justify-center mx-auto flex-wrap max-lg:w-auto gap-10">
                 <div>
                     <input class="hidden peer" type="radio" name="filter_type" id="all" checked>
                     <label class="border-3 px-4 py-1 rounded-lg border-black text-black peer-checked:bg-black peer-checked:text-white transition" for="all">All</label>
                 </div>
+                
                 <div>
                     <input class="hidden peer" type="radio" name="filter_type" id="marin">
                     <label class="border-3 px-4 py-1 rounded-lg border-(--marin-card-color) text-(--marin-card-color) peer-checked:bg-(--marin-card-color) peer-checked:text-white transition" for="marin">Marin</label>
@@ -83,5 +84,6 @@
     
     <script src="./localStorage.js"></script>
     <script src="./favorites.js"></script>
+    <script src="./cart.js"></script>
 </body>
 </html>
