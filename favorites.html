@@ -9,23 +9,27 @@
     <title>One piece</title>
 </head>
 <body>
-    <header class="flex justify-between align-center px-5 py-3 fixed bg-white top-0 left-0 w-full z-1">
+    <header class="font-[One-piece] gap-4 text-2xl font-bold flex justify-between items-center px-5 py-3 fixed bg-white top-0 left-0 w-full z-1">
         <div class="flex-grow">
             <img src="./img/logo.png" alt="logo" class="h-12">
         </div>
-        <nav class="font-[One-piece] font-bold  text-2xl flex flex-grow-4 justify-between ">
+        <nav class="font-bold  text-2xl flex flex-grow-4 justify-between ">
             <ul class="flex justify-between flex-grow items-center">
                 <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/home.png" alt="" class="h-10">Home</a></li>
                 <li><a href="./market.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/market.png" alt="" class="h-10">Market</a></li>
                 <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/my deck.png" alt="" class="h-10">My Deck</a></li>
                 <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/guide.png" alt="" class="h-10">Guide</a></li>
                 <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/favorite.png" alt="" class="h-10">Favorites</a></li>
-                <li><a href="" class="flex items-center tracking-[3px] text-(--main-red)">cart</a></li>
             </ul>
+            <button href="" class="cart-btn tracking-[3px] text-(--main-red) bg-(--main-red) text-white px-5 py-1">cart</button>
         </nav>
     </header>
 
     <main class="mt-25">
+                <div tabindex="1" class="cart-container w-[400px] h-[calc(100vh-72px)] border-l-3 border-t-3 border-(--main-red) z-50 bg-white fixed top-[72px] right-0 transition translate-x-[100%] flex flex-col justify-between">
+            <div class="cart-list flex-shrink-1 overflow-y-auto flex flex-col items-start gap-5 p-2"></div>
+            <div class="cart-footer bg-red-900 h-[70px]"><button>hi</button></div>
+        </div>
         <h1 class="text-[100px] font-[One-piece] tracking-[3px] text-(--main-red) text-center">Favorites</h1>
         <section class="filter my-10">
             <form class="flex w-[700px] justify-around mx-auto">
