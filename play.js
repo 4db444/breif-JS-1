@@ -1,4 +1,5 @@
 const left_side_bar = document.querySelector(".left-side-bar")
+const hand = document.querySelector(".hand");
 
 const my_deck = JSON.parse(localStorage.getItem("myDeck"))
 
@@ -19,8 +20,6 @@ function shuffle (arr){
 
         [arr[index], arr[randomIndex]] = [arr[randomIndex], arr[index]];
     })
-
-    console.log(arr)
 }
 
 shuffle(cardsToPlay)
@@ -41,5 +40,36 @@ cardsToPlay.forEach(elem => {
             </div>
         </div> 
     `
+})
+
+document.querySelectorAll(".draggable").forEach(elem => {
+    elem.addEventListener("dragstart", () => {
+        console.log("dragstart")
+        elem.classList.add("opacity-[.5]", "dragging")
+    })
+    elem.addEventListener("dragend", () => {
+        elem.classList.remove("opacity-[.5]", "dragging")
+    })
+})
+
+hand.addEventListener("dragover", (e) => {
+    e.preventDefault()
+    draggalbeElement = document.querySelector(".dragging")
+    draggalbeElement.classList.remove("absolute", "w-full")
+    draggalbeElement.classList.add("h-full")
+    // setTimeout(() => {
+    //     draggalbeElement.querySelector(".wrapper").classList.remove("rotate-y-180")
+    // }, 1000);
+    hand.appendChild(draggalbeElement)
+})
+
+// hand.addEventListener("dragleave", e => {
+//     console.log('leaved')
+//     hand.querySelector(".dragging").remove()
+// })
+
+hand.addEventListener("drop", (e) => {
+    cardWrapper = document.querySelector(".dragging>.wrapper")
+    cardWrapper.classList.remove("rotate-y-180")
 })
 
