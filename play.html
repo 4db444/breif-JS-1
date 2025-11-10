@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>One piece</title>
+</head>
+<body>
+    <header class="font-[One-piece] gap-4 text-2xl flex justify-between items-center px-5 py-3 bg-white w-full z-1 shadow">
+        <div class="flex items-center flex-grow justify-between w-full lg:w-auto">
+            <img src="./img/logo.png" alt="logo" class="h-10 h-12" />
+            <button id="menu-toggle" class="lg:hidden text-(--main-red) text-3xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav class="text-2xl flex justify-between flex-grow-5">
+            <ul class="max-lg:translate-x-[100%] max-lg-shadow flex justify-between flex-grow max-lg:fixed max-lg:flex-col max-lg:right-0 bg-green-400 max-lg:h-[calc(100vh-72px)] max-lg:w-full max-lg:top-[72px] bg-white max-lg:py-10 transition max-lg:items-center sm:w-[300px]">
+                <li><a href="./index.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/home.png" alt="" class="h-10">Home</a></li>
+                <li><a href="./market.html" class="flex item    s-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/market.png" alt="" class="h-10">Market</a></li>
+                <li><a href="./my deck.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/my deck.png" alt="" class="h-10">My Deck</a></li>
+                <li><a href="./guide.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/guide.png" alt="" class="h-10">Guide</a></li>
+                <li><a href="favorites.html" class="flex items-center tracking-[3px] text-(--main-red)"><img src="./img/nav icons/favorite.png" alt="" class="h-10">Favorites</a></li>
+                <li>
+                    <button class="rounded-md cart-btn tracking-[3px] text-(--main-red) bg-(--main-red) text-white px-5 py-1">cart</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="h-screen">
+        <section class="left-side-bar w-[250px] bg-red-300 h-screen relative">
+        </section>
+        
+    </main>
+
+    <script src="./play.js"></script>
+</body>
+</html>

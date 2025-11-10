@@ -19,9 +19,9 @@
 }
 
 .card {
-  width: 350px;
+  max-width: 350px;
   aspect-ratio: 5/7;
-  position: relative;
+  /* position: relative; */
   border-radius: 40px;
   overflow: hidden;
   
