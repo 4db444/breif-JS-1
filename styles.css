@@ -23,7 +23,7 @@
   aspect-ratio: 5/7;
   /* position: relative; */
   border-radius: 40px;
-  overflow: hidden;
+  /* overflow: hidden; */
   
   .card-img {
     border-radius: 40px;
@@ -38,7 +38,7 @@
     top: 0;
     left: 0;
     border-radius: 40px 0;
-    width: 100px;
+    width: min(100px, 40%);
     aspect-ratio: 1/1;
   }
 

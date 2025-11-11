@@ -56,7 +56,7 @@ function renderCards (arr) {
     }else {
         for(let i = page_items * (page_number - 1); i < page_items * page_number && i < arr.length; i++){
             cards_container.innerHTML += `
-                <div class="card group relative">
+                <div class="card group relative overflow-hidden">
                     <img src="${arr[i].img}" alt="" class="card-img border-[20px]  border-(--${arr[i].rarity}-card-color) group-hover:brightness-70 transition">
                     <div class="card-rarity-container bg-(--${arr[i].rarity}-card-color)">
                         <img src="./img/rarity/${arr[i].rarity} tag.png" alt="" class="card-rarity">

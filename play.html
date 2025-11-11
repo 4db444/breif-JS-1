@@ -30,11 +30,25 @@
         </nav>
     </header>
 
-    <main class="h-screen grid grid-cols-[300px_1fr_300px] grid-rows-[1fr_300px]">
-        <section class="left-side-bar bg-red-300 row-span-2 relative">
+    <main class="h-screen grid grid-cols-[300px_1fr_300px] grid-rows-[1fr_290px]">
+        <section class="left-side-bar bg-red-300 relative">
         </section>
 
-        <section class="hand bg-green-400 row-start-2 col-start-2 flex"></section>
+        <section class="arena bg-yellow-500 ">
+            <div class="oponent h-[50%]">
+                oponent
+            </div>
+            <div class="player-arena h-[50%] flex justify-around">
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed"></div>
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed"></div>
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed"></div>
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed"></div>
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed"></div>
+            </div>
+
+        </section>
+
+        <section class="hand bg-green-400 row-start-2 col-start-1 col-span-2 flex gap-4 justify-center p-2 perspective-near"></section>
 
     </main>
 

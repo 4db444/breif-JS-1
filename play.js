@@ -26,7 +26,7 @@ shuffle(cardsToPlay)
 
 cardsToPlay.forEach(elem => {
     left_side_bar.innerHTML += `
-        <div class="card draggable absolute top-0 left-0 w-full" draggable="true">
+        <div class="card draggable absolute top-0 left-0 w-full perspective-midrange" draggable="true">
             <div class="wrapper transform-3d transition-transform duration-500 rotate-y-180 relative w-full h-full">
                 <div class="front absolute top-0 left-0 w-full h-full backface-hidden">
                     <img src="${elem.img}" alt="" class="card-img border-[15px] border-(--${elem.rarity}-card-color)">
@@ -54,22 +54,39 @@ document.querySelectorAll(".draggable").forEach(elem => {
 
 hand.addEventListener("dragover", (e) => {
     e.preventDefault()
+    const afterElement = getAfterElement(hand, e.clientX)
+
     draggalbeElement = document.querySelector(".dragging")
     draggalbeElement.classList.remove("absolute", "w-full")
     draggalbeElement.classList.add("h-full")
-    // setTimeout(() => {
-    //     draggalbeElement.querySelector(".wrapper").classList.remove("rotate-y-180")
-    // }, 1000);
-    hand.appendChild(draggalbeElement)
-})
 
-// hand.addEventListener("dragleave", e => {
-//     console.log('leaved')
-//     hand.querySelector(".dragging").remove()
-// })
+    if(afterElement){
+        hand.insertBefore(draggalbeElement, afterElement)
+    }else{
+        hand.appendChild(draggalbeElement)
+    }
+})
 
 hand.addEventListener("drop", (e) => {
     cardWrapper = document.querySelector(".dragging>.wrapper")
     cardWrapper.classList.remove("rotate-y-180")
 })
 
+function getAfterElement (container, x){
+    const containerCards = Array.from(container.querySelectorAll(".card"))
+
+    return containerCards.reduce((closest, elem) => {
+        const elemBox = elem.getBoundingClientRect();
+
+        const x_position = x - elemBox.left - elemBox.width / 2;
+
+        if(x_position < 0 && x_position > closest.x_position){
+            return {
+                x_position,
+                element : elem
+            }
+        }   
+
+        return closest;
+    }, {x_position : -Infinity}).element
+}

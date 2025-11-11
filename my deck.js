@@ -16,7 +16,7 @@ function renderCards (arr) {
         arr.forEach(elem => 
 
             cards_container.innerHTML += `
-                <div class="card group relative">
+                <div class="card group relative overflow-hidden">
                     <img src="${elem.img}" alt="" class="card-img border-[20px]  border-(--${elem.rarity}-card-color) group-hover:brightness-70 transition">
                     <div class="card-rarity-container bg-(--${elem.rarity}-card-color)">
                         <img src="./img/rarity/${elem.rarity} tag.png" alt="" class="card-rarity">
