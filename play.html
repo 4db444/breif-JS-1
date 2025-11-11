@@ -30,20 +30,25 @@
         </nav>
     </header>
 
-    <main class="h-screen grid grid-cols-[300px_1fr_300px] grid-rows-[1fr_290px]">
+    <main class="h-screen grid grid-cols-[250px_1fr_300px] grid-rows-[minmax(0,1fr)_290px]">
+
         <section class="left-side-bar bg-red-300 relative">
         </section>
 
-        <section class="arena bg-yellow-500 ">
-            <div class="oponent h-[50%]">
-                oponent
+        <section class="arena bg-yellow-500 row-start-1 row-end-2 col-start-2 flex flex-col p-3 gap-4">
+            <div class="oponent flex justify-evenly items-center gap-5 flex-grow">
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full rounded-[32px]"></div>
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full rounded-[32px]"></div>
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full rounded-[32px]"></div>
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full rounded-[32px]"></div>
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full rounded-[32px]"></div>
             </div>
-            <div class="player-arena h-[50%] flex justify-evenly items-center gap-5">
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed flex-grow"></div>
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed flex-grow"></div>
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed flex-grow"></div>
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed flex-grow"></div>
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed flex-grow"></div>
+            <div class="player-arena flex justify-evenly items-center gap-5 flex-grow">
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
+                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
             </div>
 
         </section>

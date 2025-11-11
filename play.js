@@ -27,10 +27,10 @@ shuffle(cardsToPlay)
 
 cardsToPlay.forEach(elem => {
     left_side_bar.innerHTML += `
-        <div class="card deck-card draggable absolute top-0 left-0 w-full perspective-midrange" draggable="true">
+        <div class="card deck-card draggable absolute top-0 left-0 w-full perspective-midrange transition" draggable="true">
             <div class="wrapper transform-3d transition-transform duration-500 rotate-y-180 relative w-full h-full">
                 <div class="front absolute top-0 left-0 w-full h-full backface-hidden">
-                    <img src="${elem.img}" alt="" class="card-img border-[15px] border-(--${elem.rarity}-card-color)">
+                    <img src="${elem.img}" alt="" class="card-img border-[10px] border-(--${elem.rarity}-card-color) w-full h-full">
                     <div class="card-rarity-container bg-(--${elem.rarity}-card-color)">
                         <img src="./img/rarity/${elem.rarity} tag.png" alt="" class="card-rarity">
                     </div>
@@ -45,7 +45,12 @@ cardsToPlay.forEach(elem => {
 
 // cards to hand 
 document.querySelectorAll(".draggable").forEach(elem => {
-    elem.addEventListener("dragstart", () => {
+    elem.addEventListener("dragstart", (e) => {
+        if(hand.children.length >= 5 && !elem.classList.contains("hand-card")){
+            e.preventDefault()
+            console.log("you can not start dragging")
+            return
+        }
         console.log("dragstart")
         elem.classList.add("opacity-[.5]", "dragging")
     })
@@ -56,9 +61,11 @@ document.querySelectorAll(".draggable").forEach(elem => {
 
 hand.addEventListener("dragover", (e) => {
     e.preventDefault()
+    const draggalbeElement = document.querySelector(".dragging")
+    if(hand.children.length >= 5 && !draggalbeElement.classList.contains("hand-card")) return ;
+    
+    
     const afterElement = getAfterElement(hand, e.clientX)
-
-    draggalbeElement = document.querySelector(".dragging")
     draggalbeElement.classList.remove("absolute", "w-full")
     draggalbeElement.classList.add("h-full")
 
@@ -67,14 +74,17 @@ hand.addEventListener("dragover", (e) => {
     }else{
         hand.appendChild(draggalbeElement)
     }
+
+    setTimeout(() => {
+    }, 300);
 })
 
 hand.addEventListener("drop", (e) => {
     const draggableElement = document.querySelector(".dragging");
-    draggableElement.classList.add("hand-card")
-    cardWrapper = draggableElement.querySelector(".wrapper")
-    cardWrapper.classList.remove("rotate-y-180")
-    
+    if(draggableElement.classList.contains("hand-card")) return;
+        draggableElement.classList.add("hand-card")
+        cardWrapper = draggableElement.querySelector(".wrapper")
+        cardWrapper.classList.remove("rotate-y-180")
 })
 
 function getAfterElement (container, x){
@@ -102,7 +112,20 @@ playerArena.querySelectorAll(".slot").forEach(elem => {
         const draggable = document.querySelector(".dragging")
         if(draggable.classList.contains("hand-card") && !elem.children.length){
             e.preventDefault();
-            elem.appendChild(draggable)
+            elem.classList.add("scale-[1.1]")
         }
+    })
+
+    elem.addEventListener("dragleave", e => {
+        elem.classList.remove("scale-[1.1]")    
+    })
+    
+    elem.addEventListener("drop", e => {
+        const draggable = document.querySelector(".dragging")
+        if(draggable.classList.contains("hand-card") && !elem.children.length){
+            elem.appendChild(draggable)
+            draggable.classList.add("w-full")
+        }
+        elem.classList.remove("scale-[1.1]")
     })
 })
