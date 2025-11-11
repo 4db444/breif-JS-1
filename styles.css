@@ -21,9 +21,7 @@
 .card {
   max-width: 350px;
   aspect-ratio: 5/7;
-  /* position: relative; */
   border-radius: 40px;
-  /* overflow: hidden; */
   
   .card-img {
     border-radius: 40px;

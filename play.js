@@ -1,5 +1,6 @@
 const left_side_bar = document.querySelector(".left-side-bar")
 const hand = document.querySelector(".hand");
+const playerArena = document.querySelector(".player-arena")
 
 const my_deck = JSON.parse(localStorage.getItem("myDeck"))
 
@@ -26,7 +27,7 @@ shuffle(cardsToPlay)
 
 cardsToPlay.forEach(elem => {
     left_side_bar.innerHTML += `
-        <div class="card draggable absolute top-0 left-0 w-full perspective-midrange" draggable="true">
+        <div class="card deck-card draggable absolute top-0 left-0 w-full perspective-midrange" draggable="true">
             <div class="wrapper transform-3d transition-transform duration-500 rotate-y-180 relative w-full h-full">
                 <div class="front absolute top-0 left-0 w-full h-full backface-hidden">
                     <img src="${elem.img}" alt="" class="card-img border-[15px] border-(--${elem.rarity}-card-color)">
@@ -42,6 +43,7 @@ cardsToPlay.forEach(elem => {
     `
 })
 
+// cards to hand 
 document.querySelectorAll(".draggable").forEach(elem => {
     elem.addEventListener("dragstart", () => {
         console.log("dragstart")
@@ -68,8 +70,11 @@ hand.addEventListener("dragover", (e) => {
 })
 
 hand.addEventListener("drop", (e) => {
-    cardWrapper = document.querySelector(".dragging>.wrapper")
+    const draggableElement = document.querySelector(".dragging");
+    draggableElement.classList.add("hand-card")
+    cardWrapper = draggableElement.querySelector(".wrapper")
     cardWrapper.classList.remove("rotate-y-180")
+    
 })
 
 function getAfterElement (container, x){
@@ -90,3 +95,14 @@ function getAfterElement (container, x){
         return closest;
     }, {x_position : -Infinity}).element
 }
+
+// arena slots
+playerArena.querySelectorAll(".slot").forEach(elem => {
+    elem.addEventListener("dragover", (e) => {
+        const draggable = document.querySelector(".dragging")
+        if(draggable.classList.contains("hand-card") && !elem.children.length){
+            e.preventDefault();
+            elem.appendChild(draggable)
+        }
+    })
+})
