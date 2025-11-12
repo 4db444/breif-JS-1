@@ -21,7 +21,7 @@
 .card {
   max-width: 350px;
   aspect-ratio: 5/7;
-  border-radius: 40px;
+  border-radius: 30px;
   
   .card-img {
     border-radius: 30px;
@@ -44,4 +44,5 @@
     width: 100px;
     filter: brightness(1000);
   }
+
 }
