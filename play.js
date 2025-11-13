@@ -1,9 +1,24 @@
 const left_side_bar = document.querySelector(".left-side-bar")
 const hand = document.querySelector(".hand");
 const playerArena = document.querySelector(".player-arena")
+const oponentArena = document.querySelector(".oponent")
 
 const my_deck = JSON.parse(localStorage.getItem("myDeck"))
-const cardsToPlay = [];7
+const cardsToPlay = [];
+
+let currentTurn = "player";
+let totalAttempts = 3;
+
+let market = JSON.parse(localStorage.getItem("cards"))
+
+let robotHand = []
+let robotDeck = []
+
+for(let i = 0; i < 10; i ++){
+    robotDeck.push(market[Math.floor(Math.random() * 10)])
+}
+
+console.log("robot deck", robotDeck)
 
 
 my_deck.forEach(elem => {
@@ -50,12 +65,13 @@ cardsToPlay.forEach(elem => {
 // cards to hand 
 document.querySelectorAll(".draggable").forEach(elem => {
     elem.addEventListener("dragstart", (e) => {
-        if(hand.children.length >= 5 && !elem.classList.contains("hand-card")){
+        if((hand.children.length >= 5 && !elem.classList.contains("hand-card")) || currentTurn !== "player" || totalAttempts <= 0){
             e.preventDefault()
             return
         }
         elem.classList.add("opacity-[.5]", "dragging")
     })
+
     elem.addEventListener("dragend", () => {
         elem.classList.remove("opacity-[.5]", "dragging")
     })
@@ -84,6 +100,12 @@ hand.addEventListener("drop", (e) => {
     draggableElement.classList.add("hand-card")
     cardWrapper = draggableElement.querySelector(".wrapper")
     cardWrapper.classList.remove("rotate-y-180")
+
+    if(--totalAttempts <= 0){
+        currentTurn = "robot";
+        robotLogic()
+
+    }
 })
 
 function getAfterElement (container, x){
@@ -122,8 +144,12 @@ playerArena.querySelectorAll(".slot").forEach(elem => {
     elem.addEventListener("drop", e => {
         const draggable = document.querySelector(".dragging")
         if((draggable.classList.contains("hand-card") || draggable.classList.contains("arena-card")) && !elem.children.length){
+            if(--totalAttempts <= 0){
+                currentTurn = "robot";
+                robotLogic()
+            }
             elem.appendChild(draggable)
-            draggable.classList.add("w-full", "arena-card")
+            draggable.classList.add("w-full", "arena-card", "group")
             
             if(draggable.classList.contains("hand-card")) {
                 draggable.classList.remove("hand-card")
@@ -145,13 +171,17 @@ playerArena.querySelectorAll(".slot").forEach(elem => {
                 `
 
                 position_form.querySelector("button.defence").addEventListener("click", e => {
-                    console.log("defence card")
                     draggable.querySelector("h3.attack").remove();
                     position_form.remove();
+
                 })
+                
                 position_form.querySelector("button.attack").addEventListener("click", e => {
                     console.log("attack card")
                     draggable.querySelector("h3.shield").remove();
+                    draggable.insertAdjacentHTML("beforeend", `
+                        <button class="attack-btn absolute top-[50%] left-[50%] bg-red-600 opacity-0 group-hover:opacity-100 text-2xl py-2 px-4 rounded-[10px] group-hover:translate-y-[-50%] translate-x-[-50%] text-white transition "> Attack </button>
+                        `)
                     position_form.remove();
                 })
 
@@ -161,3 +191,97 @@ playerArena.querySelectorAll(".slot").forEach(elem => {
         elem.classList.remove("scale-[1.1]")
     })
 })
+
+function delay (time_ms){
+    return new Promise(resolve => setTimeout(() => {
+        resolve()
+    }, time_ms))
+}
+
+function robotDrawCard () {
+    if(robotHand.length >= 5){
+        robotPutInArena()
+    }else{
+        robotHand.push(robotDeck.pop());
+        totalAttempts--
+    }
+}
+
+function robotPutInArena (){
+    
+    if(robotHand.length){
+        let emptySlots = oponentArena.querySelectorAll(".slot:empty")
+        if(emptySlots.length && robotHand.length){
+            let putedCard = robotHand.pop()
+            console.log(putedCard);
+            emptySlots[Math.floor(Math.random() * emptySlots.length)].innerHTML = `
+                <div class="card deck-card draggable w-full h-full perspective-midrange transition overflow-hidden" draggable="true">
+                    <div class="wrapper transform-3d transition-transform duration-500 relative w-full h-full ">
+                        <div class="front absolute top-0 left-0 w-full h-full backface-hidden overflow-hidden">
+                            <img src="${putedCard.img}" alt="" class="card-img border-[10px] border-(--${putedCard.rarity}-card-color) w-full h-full">
+                            <div class="card-rarity-container bg-(--${putedCard.rarity}-card-color)">
+                                <img src="./img/rarity/${putedCard.rarity} tag.png" alt="" class="card-rarity">
+                            </div>
+                            <div class="absolute bottom-0 w-full h-[60px] flex justify-around items-center p-2 text-white bg-(--${putedCard.rarity}-card-color)">
+                                <h3 class="shield">${putedCard.shield} <i class="fa-solid fa-shield-halved"></i></h3>
+                                <h3 class="attack">${putedCard.attack} <i class="fa-solid fa-fire"></i></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>         
+            
+            `;
+            totalAttempts--
+        }else{
+            robotAttack()
+        }
+    }else {
+        robotDrawCard();
+    }
+}
+
+function robotAttack() {
+
+    let attackingCards = oponentArena.querySelectorAll(".attack-btn");
+
+    if(attackingCards.length){
+        let attackSlots = playerArena.querySelectorAll(".slot:not(.slot:empty)")
+        
+        if(attackSlots.length){
+            console.log("i am attacking: ", attackSlots[Math.floor(Math.random() * attackSlots.length)])
+        }else {
+            attackSlots = playerArena.querySelectorAll(".slot")
+            console.log("i am attacking: ", attackSlots[Math.floor(Math.random() * attackSlots.length)])
+        }
+        totalAttempts--;
+    }else {
+        robotDrawCard();
+    }
+
+}
+
+async function robotLogic () {
+    totalAttempts = 3;
+    let actions = ["draw", "put in arena", "attack"]
+    while(totalAttempts > 0 && currentTurn === "robot"){
+        let action = actions[Math.floor(Math.random() * 3)];
+
+        await delay(1500)
+
+        switch (action){
+            case "draw":
+                robotDrawCard();
+                break;
+            case "put in arena":
+                robotPutInArena();
+                break;
+            case "attack":
+                robotAttack();
+                break;
+            default:
+                console.log("what the heck is going on !")
+        }
+    }
+    totalAttempts = 3;
+    currentTurn = "player"
+}
