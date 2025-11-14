@@ -74,7 +74,7 @@ const initialData = [
   {
     id: 7,
     name: "Kizaru",
-    img: "./img/cards/Kizaru.png",
+    img: "./img/cards/kizaru.png",
     rarity: "yonko",
     is_liked: false,
     in_cart: false,
