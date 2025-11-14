@@ -30,30 +30,46 @@
         </nav>
     </header>
 
-    <main class="h-screen grid grid-cols-[250px_1fr_300px] grid-rows-[minmax(0,1fr)_290px]">
+    <main class="h-screen grid grid-cols-[250px_1fr_300px] grid-rows-[minmax(0,1fr)_290px] gap-3">
 
         <section class="left-side-bar bg-red-300 relative">
         </section>
 
-        <section class="arena bg-yellow-500 row-start-1 row-end-2 col-start-2 flex flex-col p-3 gap-4">
+        <section class="arena row-start-1 row-end-2 col-start-2 flex flex-col p-3 gap-4">
             <div class="oponent flex justify-evenly items-center gap-5 flex-grow">
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
+                <div class="slot aspect-5/7 border border-3 border-[#00000055] border-dashed h-full flex-shrink rounded-[32px] transition"></div>
+                <div class="slot aspect-5/7 border border-3 border-[#00000055] border-dashed h-full flex-shrink rounded-[32px] transition"></div>
+                <div class="slot aspect-5/7 border border-3 border-[#00000055] border-dashed h-full flex-shrink rounded-[32px] transition"></div>
+                <div class="slot aspect-5/7 border border-3 border-[#00000055] border-dashed h-full flex-shrink rounded-[32px] transition"></div>
+                <div class="slot aspect-5/7 border border-3 border-[#00000055] border-dashed h-full flex-shrink rounded-[32px] transition"></div>
             </div>
             <div class="player-arena flex justify-evenly items-center gap-5 flex-grow">
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
-                <div class="slot bg-red-300 aspect-5/7 border border-3 border-black border-dashed h-full flex-shrink rounded-[32px] transition"></div>
+                <div class="slot aspect-5/7 border border-3 border-[#00000055] border-dashed h-full flex-shrink rounded-[32px] transition"></div>
+                <div class="slot aspect-5/7 border border-3 border-[#00000055] border-dashed h-full flex-shrink rounded-[32px] transition"></div>
+                <div class="slot aspect-5/7 border border-3 border-[#00000055] border-dashed h-full flex-shrink rounded-[32px] transition"></div>
+                <div class="slot aspect-5/7 border border-3 border-[#00000055] border-dashed h-full flex-shrink rounded-[32px] transition"></div>
+                <div class="slot aspect-5/7 border border-3 border-[#00000055] border-dashed h-full flex-shrink rounded-[32px] transition"></div>
             </div>
 
         </section>
 
         <section class="hand bg-green-400 row-start-2 col-start-1 col-span-2 flex gap-4 justify-center p-2 perspective-near"></section>
+
+        <section class="bg-blue-500 flex flex-col items-center justify-center">
+            <div class="player-stats">
+                <h2 class="text-center">You</h2>
+                <p>HP: <span id="player-health">20000</span></p>
+                <p>Total Cards: <span id="player-total-cards">10</span></p>
+            </div>
+            <div class="robot-stats">
+                <h2 class="text-center">Robot</h2>
+                <p>HP: <span id="robot-health">20000</span></p>
+                <p>Total Cards: <span id="player-total-cards">10</span></p>
+            </div>
+        </section>
+        <section class="robot-messages bg-blue-500">
+            
+        </section>
 
     </main>
 
