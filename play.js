@@ -380,7 +380,7 @@ async function robotLogic () {
     while(totalAttempts > 0 && currentTurn === "robot"){
         let action = actions[Math.floor(Math.random() * 3)];
 
-        // await delay(1500)
+        await delay(1500)
 
         switch (action){
             case "draw":
